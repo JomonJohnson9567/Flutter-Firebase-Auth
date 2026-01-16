@@ -6,6 +6,7 @@ import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/c
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/error_state.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/gradient_background.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/logout_button.dart';
+import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/logout_dialog.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/profile_avatar.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/welcome.dart';
 
@@ -56,9 +57,7 @@ class HomePage extends StatelessWidget {
                                 SizedBox(height: 32.h),
                                 LogoutButton(
                                   onPressed: () {
-                                    context.read<AuthBloc>().add(
-                                      AuthLogoutRequested(),
-                                    );
+                                    LogoutDialog.show(context);
                                   },
                                 ),
                                 SizedBox(height: 20.h),
