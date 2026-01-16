@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:machine_task_auth/core/constants/app_colors.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/custom_appbar.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/error_state.dart';
@@ -7,7 +8,7 @@ import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/g
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/logout_button.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/profile_avatar.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/welcome.dart';
- 
+
 import '../../bloc/auth_bloc.dart';
 
 class HomePage extends StatelessWidget {
@@ -26,33 +27,33 @@ class HomePage extends StatelessWidget {
                     const CustomAppBar(),
                     Expanded(
                       child: Container(
-                        margin: const EdgeInsets.only(top: 10),
-                        decoration: const BoxDecoration(
+                        margin: EdgeInsets.only(top: 10.h),
+                        decoration: BoxDecoration(
                           color: AppColors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                          borderRadius: BorderRadius.all(Radius.circular(30.r)),
                         ),
                         child: SingleChildScrollView(
                           child: Padding(
-                            padding: const EdgeInsets.all(24.0),
+                            padding: EdgeInsets.all(24.0.r),
                             child: Column(
                               children: [
-                                const SizedBox(height: 20),
+                                SizedBox(height: 20.h),
                                 ProfileAvatar(
                                   displayName: state.user.displayName,
                                   email: state.user.email,
                                 ),
-                                const SizedBox(height: 24),
+                                SizedBox(height: 24.h),
                                 WelcomeSection(
                                   displayName: state.user.displayName,
                                   email: state.user.email,
                                 ),
-                                const SizedBox(height: 40),
+                                SizedBox(height: 40.h),
 
-                                const SizedBox(height: 16),
+                                SizedBox(height: 16.h),
 
-                                const SizedBox(height: 16),
+                                SizedBox(height: 16.h),
 
-                                const SizedBox(height: 32),
+                                SizedBox(height: 32.h),
                                 LogoutButton(
                                   onPressed: () {
                                     context.read<AuthBloc>().add(
@@ -60,7 +61,7 @@ class HomePage extends StatelessWidget {
                                     );
                                   },
                                 ),
-                                const SizedBox(height: 20),
+                                SizedBox(height: 20.h),
                               ],
                             ),
                           ),

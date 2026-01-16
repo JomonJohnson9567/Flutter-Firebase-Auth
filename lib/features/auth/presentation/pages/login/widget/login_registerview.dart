@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:machine_task_auth/core/constants/app_colors.dart';
 import 'package:machine_task_auth/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/home/widget/gradient_background.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/login/widget/auth_form.dart';
 import 'package:machine_task_auth/features/auth/presentation/pages/login/widget/auth_headet.dart';
- 
 
 class LoginRegisterView extends StatelessWidget {
   const LoginRegisterView({super.key});
@@ -32,12 +32,12 @@ class LoginRegisterView extends StatelessWidget {
                 Expanded(
                   child: Container(
                     width: double.infinity,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: AppColors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      borderRadius: BorderRadius.all(Radius.circular(30.r)),
                     ),
-                    child: const SingleChildScrollView(
-                      padding: EdgeInsets.all(24.0),
+                    child: SingleChildScrollView(
+                      padding: EdgeInsets.all(24.0.r),
                       child: AuthFormContent(),
                     ),
                   ),

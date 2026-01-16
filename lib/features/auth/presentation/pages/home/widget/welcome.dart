@@ -1,7 +1,8 @@
 // widgets/welcome_section.dart
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:machine_task_auth/core/constants/app_colors.dart';
- 
+
 class WelcomeSection extends StatelessWidget {
   final String displayName;
   final String email;
@@ -19,31 +20,31 @@ class WelcomeSection extends StatelessWidget {
         Text(
           'Welcome!',
           style: TextStyle(
-            fontSize: 28,
+            fontSize: 28.sp,
             fontWeight: FontWeight.bold,
             color: AppColors.textDark,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         Text(
           displayName,
           style: TextStyle(
-            fontSize: 22,
+            fontSize: 22.sp,
             fontWeight: FontWeight.w600,
             color: AppColors.textBlue,
           ),
           textAlign: TextAlign.center,
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
           decoration: BoxDecoration(
             color: AppColors.backgroundLight,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(20.r),
           ),
           child: Text(
             email,
-            style: TextStyle(fontSize: 16, color: AppColors.textGrey),
+            style: TextStyle(fontSize: 16.sp, color: AppColors.textGrey),
           ),
         ),
       ],
