@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,25 +14,28 @@ class LogoutDialog extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.r)),
       elevation: 0,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.transparent,
       child: Container(
         padding: EdgeInsets.all(20.w),
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [Color(0xFF29B6F6), Color(0xFFAB47BC)],
+            colors: [
+              AppColors.logoutGradientStart,
+              AppColors.logoutGradientEnd,
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(20.r),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF29B6F6).withOpacity(0.4),
+              color: AppColors.logoutGradientStart.withOpacity(0.4),
               blurRadius: 20,
               offset: const Offset(0, 10),
               spreadRadius: 1,
             ),
             BoxShadow(
-              color: const Color(0xFFAB47BC).withOpacity(0.3),
+              color: AppColors.logoutGradientEnd.withOpacity(0.3),
               blurRadius: 12,
               offset: const Offset(0, 6),
             ),
@@ -43,17 +48,17 @@ class LogoutDialog extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(14.w),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.15),
+                color: AppColors.white.withOpacity(0.15),
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.3),
+                  color: AppColors.white.withOpacity(0.3),
                   width: 2,
                 ),
               ),
               child: Icon(
                 Icons.logout_rounded,
                 size: 32.sp,
-                color: Colors.white,
+                color: AppColors.white,
               ),
             ),
             SizedBox(height: 16.h),
@@ -64,7 +69,7 @@ class LogoutDialog extends StatelessWidget {
               style: TextStyle(
                 fontSize: 22.sp,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppColors.white,
                 letterSpacing: 0.5,
               ),
             ),
@@ -76,7 +81,7 @@ class LogoutDialog extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14.sp,
-                color: Colors.white.withOpacity(0.95),
+                color: AppColors.white.withOpacity(0.95),
                 height: 1.4,
               ),
             ),
@@ -90,9 +95,9 @@ class LogoutDialog extends StatelessWidget {
                     onPressed: () => Navigator.of(context).pop(),
                     style: OutlinedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 12.h),
-                      backgroundColor: Colors.white.withOpacity(0.1),
+                      backgroundColor: AppColors.white.withOpacity(0.1),
                       side: BorderSide(
-                        color: Colors.white.withOpacity(0.4),
+                        color: AppColors.white.withOpacity(0.4),
                         width: 1.5,
                       ),
                       shape: RoundedRectangleBorder(
@@ -103,7 +108,7 @@ class LogoutDialog extends StatelessWidget {
                       'Cancel',
                       style: TextStyle(
                         fontSize: 15.sp,
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 0.3,
                       ),
@@ -119,7 +124,7 @@ class LogoutDialog extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 12.h),
-                      backgroundColor: Colors.white,
+                      backgroundColor: AppColors.white,
                       elevation: 3,
                       shadowColor: Colors.black26,
                       shape: RoundedRectangleBorder(
@@ -128,13 +133,16 @@ class LogoutDialog extends StatelessWidget {
                     ),
                     child: ShaderMask(
                       shaderCallback: (bounds) => const LinearGradient(
-                        colors: [Color(0xFF29B6F6), Color(0xFFAB47BC)],
+                        colors: [
+                          AppColors.logoutGradientStart,
+                          AppColors.logoutGradientEnd,
+                        ],
                       ).createShader(bounds),
                       child: Text(
                         'Logout',
                         style: TextStyle(
                           fontSize: 15.sp,
-                          color: Colors.white,
+                          color: AppColors.white,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 0.3,
                         ),

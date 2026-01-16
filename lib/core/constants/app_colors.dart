@@ -18,6 +18,9 @@ class AppColors {
   static const Color avatarGradientStart = Color(0xFF64B5F6); // blue[300]
   static const Color avatarGradientEnd = Color(0xFFBA68C8); // purple[300]
 
+  static const Color logoutGradientStart = Color(0xFF29B6F6);
+  static const Color logoutGradientEnd = Color(0xFFAB47BC);
+
   // Text
   static const Color textDark = Color(0xFF424242); // grey[800]
   static const Color textBlue = Color(0xFF1976D2); // blue[700]
