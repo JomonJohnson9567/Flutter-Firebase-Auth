@@ -11,6 +11,10 @@ class AuthFormBloc extends Bloc<AuthFormEvent, AuthFormState> {
     on<AuthFormPasswordChanged>(_onPasswordChanged);
     on<AuthFormConfirmPasswordChanged>(_onConfirmPasswordChanged);
     on<AuthFormToggleMode>(_onToggleMode);
+    on<AuthFormTogglePasswordVisibility>(_onTogglePasswordVisibility);
+    on<AuthFormToggleConfirmPasswordVisibility>(
+      _onToggleConfirmPasswordVisibility,
+    );
     on<AuthFormSubmitted>(_onSubmitted);
   }
 
@@ -56,6 +60,22 @@ class AuthFormBloc extends Bloc<AuthFormEvent, AuthFormState> {
       ),
     );
     _validate(emit);
+  }
+
+  void _onTogglePasswordVisibility(
+    AuthFormTogglePasswordVisibility event,
+    Emitter<AuthFormState> emit,
+  ) {
+    emit(state.copyWith(isPasswordVisible: !state.isPasswordVisible));
+  }
+
+  void _onToggleConfirmPasswordVisibility(
+    AuthFormToggleConfirmPasswordVisibility event,
+    Emitter<AuthFormState> emit,
+  ) {
+    emit(
+      state.copyWith(isConfirmPasswordVisible: !state.isConfirmPasswordVisible),
+    );
   }
 
   void _onSubmitted(AuthFormSubmitted event, Emitter<AuthFormState> emit) {

@@ -12,6 +12,8 @@ class AuthFormState extends Equatable {
   final String? confirmPasswordError;
   final bool isValid;
   final bool showErrors;
+  final bool isPasswordVisible;
+  final bool isConfirmPasswordVisible;
 
   const AuthFormState({
     this.name = '',
@@ -25,6 +27,8 @@ class AuthFormState extends Equatable {
     this.confirmPasswordError,
     this.isValid = false,
     this.showErrors = false,
+    this.isPasswordVisible = false,
+    this.isConfirmPasswordVisible = false,
   });
 
   AuthFormState copyWith({
@@ -39,6 +43,8 @@ class AuthFormState extends Equatable {
     String? confirmPasswordError,
     bool? isValid,
     bool? showErrors,
+    bool? isPasswordVisible,
+    bool? isConfirmPasswordVisible,
   }) {
     return AuthFormState(
       name: name ?? this.name,
@@ -52,6 +58,9 @@ class AuthFormState extends Equatable {
       confirmPasswordError: confirmPasswordError,
       isValid: isValid ?? this.isValid,
       showErrors: showErrors ?? this.showErrors,
+      isPasswordVisible: isPasswordVisible ?? this.isPasswordVisible,
+      isConfirmPasswordVisible:
+          isConfirmPasswordVisible ?? this.isConfirmPasswordVisible,
     );
   }
 
@@ -68,5 +77,7 @@ class AuthFormState extends Equatable {
     confirmPasswordError,
     isValid,
     showErrors,
+    isPasswordVisible,
+    isConfirmPasswordVisible,
   ];
 }

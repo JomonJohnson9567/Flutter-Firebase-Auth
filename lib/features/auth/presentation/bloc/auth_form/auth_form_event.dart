@@ -41,4 +41,8 @@ class AuthFormConfirmPasswordChanged extends AuthFormEvent {
 
 class AuthFormToggleMode extends AuthFormEvent {}
 
+class AuthFormTogglePasswordVisibility extends AuthFormEvent {}
+
+class AuthFormToggleConfirmPasswordVisibility extends AuthFormEvent {}
+
 class AuthFormSubmitted extends AuthFormEvent {}

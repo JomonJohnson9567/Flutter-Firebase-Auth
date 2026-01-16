@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:machine_task_auth/core/constants/app_colors.dart';
 import '../bloc/auth_form/auth_form_bloc.dart';
 
 class ConfirmPasswordInput extends StatelessWidget {
@@ -10,7 +11,8 @@ class ConfirmPasswordInput extends StatelessWidget {
     return BlocBuilder<AuthFormBloc, AuthFormState>(
       buildWhen: (previous, current) =>
           previous.isLoginMode != current.isLoginMode ||
-          previous.confirmPasswordError != current.confirmPasswordError,
+          previous.confirmPasswordError != current.confirmPasswordError ||
+          previous.isConfirmPasswordVisible != current.isConfirmPasswordVisible,
       builder: (context, state) {
         if (state.isLoginMode) return const SizedBox.shrink();
         return Column(
@@ -44,9 +46,22 @@ class ConfirmPasswordInput extends StatelessWidget {
                   vertical: 16,
                 ),
                 prefixIcon: const Icon(Icons.lock_outline, color: Colors.blue),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    state.isConfirmPasswordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: AppColors.iconGrey,
+                  ),
+                  onPressed: () {
+                    context.read<AuthFormBloc>().add(
+                      AuthFormToggleConfirmPasswordVisibility(),
+                    );
+                  },
+                ),
                 errorText: state.confirmPasswordError,
               ),
-              obscureText: true,
+              obscureText: !state.isConfirmPasswordVisible,
               onChanged: (value) => context.read<AuthFormBloc>().add(
                 AuthFormConfirmPasswordChanged(value),
               ),

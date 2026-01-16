@@ -5,7 +5,7 @@ import 'firebase_options.dart';
 import 'core/di/injection_container.dart' as di;
 import 'core/constants/app_colors.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
- 
+
 import 'features/auth/presentation/pages/auth_wrapper/auth_wrap.dart';
 
 Future<void> main() async {
